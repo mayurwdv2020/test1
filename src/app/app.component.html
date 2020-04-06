@@ -1,0 +1,37 @@
+<form [formGroup]="registrationForm">
+  {{registrationForm.value|json}}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <label>User Naame</label>
+        <input [class.is-invalid]="registrationForm.get('userName').invalid && registrationForm.get('userName').touched"
+         type="text" formControlName="userName" class="form-control">
+         <div *ngIf="registrationForm.get('userName').invalid && registrationForm.get('userName').tuched">
+           <small *ngIf="registrationForm.get('userName').errors?.required">User name is required</small>
+           <small *ngIf="password.errors.minlength">User name must be atlist 5 characters</small>
+         </div>
+      </div>
+      <div class="col-md-12">
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control">
+      </div>
+      <div class="col-md-12">
+        <label>Confirm Password</label>
+        <input type="text" formControlName="confirmpassword" class="form-control">
+      </div>
+      <div class="col-md-12 p-0" formGroupName="address">
+        <div class="col-md-12">
+          <label>city</label>
+          <input type="text" formControlName="city" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <label>State</label>
+          <input type="text" formControlName="state" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-12 mt-3">
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </div>
+  </div>
+</form>
