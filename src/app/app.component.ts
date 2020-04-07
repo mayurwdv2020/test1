@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
     this.registrationForm = this.fb.group({
       userName: ['mayur',[Validators.required,Validators.minLength(5)]],
-      password: [''],
+      password: ['123'],
       confirmpassword: [''],
       address:this.fb.group({
       city:[''],
